@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-gestao.css">
+    <title>Gestão de Pedidos - Marmitex Gilgal</title>
+</head>
+<body>
+    <nav>
+        <ul style="justify-content:center;">
+            <li><a href="fazerPedidos.html">Fazer Pedido</a></li>
+            <li><a href="consultarPedidos.html">Consultar Pedidos</a></li>
+            <li><a href="gestao.html">Gestão (Admin)</a></li>
+        </ul>
+    </nav>
+    <div>
+        <h1>Gestão de Pedidos</h1>
+        <form id="consultaAdminForm">
+            <label for="nomeCliente">Consultar por cliente:</label>
+            <input type="text" id="nomeCliente" name="nomeCliente" placeholder="Digite o nome do cliente">
+            <button type="button" id="btnConsultarAdmin">Consultar</button>
+        </form>
+        <h2>Pedidos do cliente:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Quantidade</th>
+                    <th>Tamanho</th>
+                    <th>Observações</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="pedidosAdmin">
+                <!-- Os pedidos do cliente serão exibidos aqui -->
+            </tbody>
+        </table>
+    </div>
+    <script src="gestao.js"></script>
+</body>
+</html>
+        {nome: "João", quantidade: 2, tamanho: "Grande", obs: "Sem cebola"},
+        {nome: "Maria", quantidade: 1, tamanho: "Pequeno", obs: "Com salada"},
+        {nome: "João", quantidade: 1, tamanho: "Grande", obs: ""}
+    ];
+    function filtrarPedidosAdmin() {
+        const nome = document.getElementById('nomeCliente').value.trim().toLowerCase();
+        const tbody = document.getElementById('pedidosAdmin');
+        tbody.innerHTML = '';
+        pedidos.filter(p => p.nome.toLowerCase() === nome).forEach(p => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${p.nome}</td><td>${p.quantidade}</td><td>${p.tamanho}</td><td>${p.obs}</td>
+            <td>
+                <button>Excluir</button>
+                <button>Entregue</button>
+            </td>`;
+            tbody.appendChild(tr);
+        });
+    }
+    </script>
+</body>
+</html>

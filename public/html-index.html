@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-index.css">
+    <title>Marmitex Gilgal</title>
+</head>
+
+<body>
+ 
+    <div class="container">
+        <h1>Marmitex Gilgal</h1>
+        <h2>Login do Cliente</h2>
+        <form id="loginForm" autocomplete="off">
+            
+            <label for="loginTelefone">Telefone:</label>
+            <input type="tel" id="loginTelefone" name="loginTelefone" required autocomplete="off">
+            
+            <button type="submit">Entrar</button>
+        </form>
+       
+    </div>
+    <script> document.getElementById('loginForm').addEventListener('submit', async function(e) { e.preventDefault(); const telefone = document.getElementById('loginTelefone').value.trim(); 
+   await fetch('/enviar-codigo', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ telefone }) }); 
+   const codigo = prompt('Digite o código recebido por SMS:'); 
+   await fetch('/validar-codigo', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ telefone, codigo }) }); 
+    const dados = await resposta.json(); 
+    if (dados.sucesso) { alert('Código válido. Entrando...');
+     window.location.href = 'fazerPedidos.html'; 
+     } else { alert('Código inválido. Tente novamente.'); } });
+      </script>
+</body>
+
+</html>

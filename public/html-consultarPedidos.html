@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-consultar.css">
+    <title>Consultar Pedidos - Marmitex Gilgal</title>
+</head>
+<body>
+    <!-- h2 removido do topo, será inserido após o header -->
+    <header style="background:#1976d2;box-shadow:0 2px 8px rgba(25,118,210,0.08);min-height:56px;padding:0 32px;display:flex;align-items:center;justify-content:space-between;gap:32px;margin-bottom:0;">
+        <label for="usuarioNome" style="color:#fff;max-width:16ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-right:16px;">
+            <strong>Cliente:</strong>
+            <input type="text" id="usuarioNome" name="usuarioNome" maxlength="16" style="width:120px;">
+        </label>
+        <label for="usuarioTelefone" style="color:#fff;max-width:16ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+            <strong>Telefone:</strong>
+            <input type="text" id="usuarioTelefone" name="usuarioTelefone" maxlength="16" style="width:120px;">
+        </label>
+        </div>
+        <nav>
+            <ul style="display:flex;justify-content:center;list-style:none;margin:0;padding:0;">
+                <li style="margin:0 20px;"><a href="fazerPedidos.html" style="color:#fff;text-decoration:none;font-weight:bold;font-size:1.1em;padding:18px 24px;display:block;border-radius:8px;transition:background 0.2s,color 0.2s;text-shadow:1px 1px 4px #0d47a1,0 0 2px #1565c0;">Fazer Pedidos</a></li>
+                <li style="margin:0 20px;"><a href="#" id="logoff" style="color:#fff;text-decoration:none;font-weight:bold;font-size:1.1em;padding:18px 24px;display:block;border-radius:8px;transition:background 0.2s,color 0.2s;text-shadow:1px 1px 4px #0d47a1,0 0 2px #1565c0;">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h2 style="margin:24px 0 16px 0;text-align:center;">Consultar Pedidos</h2>
+    <div>
+    <p>Aqui você vê seus pedidos em andamento e finalizados. Só é possível cancelar pedidos em andamento.</p>
+        <h2>Pedidos em andamento</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Quantidade</th>
+                    <th>Tamanho</th>
+                    <th>Observações</th>
+                        <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="pedidosAndamento">
+                <!-- Pedidos em andamento -->
+            </tbody>
+        </table>
+        <h2>Pedidos finalizados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Quantidade</th>
+                    <th>Tamanho</th>
+                    <th>Observações</th>
+                        <th>Data</th>
+                </tr>
+            </thead>
+            <tbody id="pedidosFinalizados">
+                <!-- Pedidos finalizados -->
+            </tbody>
+        </table>
+    </div>
+    <script src="consultarPedidos.js"></script>
+    <footer style="margin-top:32px;text-align:center;">
+    <!-- Botão sair movido para junto do usuário -->
+    </footer>
+    <script>
+    document.getElementById('logoff').addEventListener('click', function(e) {
+        e.preventDefault();
+        localStorage.clear();
+        window.location.href = 'index.html';
+    });
+    </script>
+</body>
+</html>
+    </script>
+</body>
+</html>
