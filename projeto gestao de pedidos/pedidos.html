@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pedidos - Admin Marmitex</title>
+  <link rel="stylesheet" href="pedidos.css" />
+</head>
+<body>
+  <nav>
+    <a href="cardapio.html">Cardápio</a> |
+    <a href="pedidos.html">Pedidos</a>
+  </nav>
+
+  <h1>Visualização de Pedidos</h1>
+
+  <div id="lista-pedidos">
+    <!-- Aqui os pedidos aparecerão dinamicamente via JS -->
+    <p>Nenhum pedido recebido ainda.</p>
+  </div>
+
+  <script>
+    // Aqui futuramente você puxaria os pedidos do backend (ou simular localmente)
+    const pedidos = [
+      {
+        cliente: "João",
+        itens: ["Arroz com Feijão", "Bolo de Chocolate"],
+        total: 20.50
+      },
+      {
+        cliente: "Maria",
+        itens: ["Frango Grelhado"],
+        total: 18.00
+      }
+    ];
+
+    const lista = document.getElementById('lista-pedidos');
+    lista.innerHTML = ''; // limpar conteúdo
+
+    pedidos.forEach(p => {
+      const div = document.createElement('div');
+      div.classList.add('pedido');
+      div.innerHTML = `
+        <h3>Cliente: ${p.cliente}</h3>
+        <p>Itens: ${p.itens.join(', ')}</p>
+        <strong>Total: R$ ${p.total.toFixed(2)}</strong>
+      `;
+      lista.appendChild(div);
+    });
+  </script>
+</body>
+</html>
